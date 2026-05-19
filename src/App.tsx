@@ -4,12 +4,14 @@ import { useEffect } from 'react'
 import type { ReactNode } from 'react'
 import Home from './pages/Home'
 import MenuPage from './pages/MenuPage'
+import FloatingCallButton from './components/common/FloatingCallButton'
 
 export default function App() {
   return (
     <BrowserRouter>
       <ScrollManager />
       <AnimatedRoutes />
+      <FloatingCallButton />
     </BrowserRouter>
   )
 }
