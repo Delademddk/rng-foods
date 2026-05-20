@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion'
 import { Quote, Star } from 'lucide-react'
-import { Autoplay, A11y } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
 import { testimonials } from '../../data/testimonials'
 import type { Testimonial } from '../../data/testimonials'
 
@@ -10,8 +7,8 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <motion.article
       whileHover={{ y: -8, scale: 1.01 }}
-      transition={{ duration: 0.05, ease: 'easeOut' }}
-      className="group relative h-full min-h-[25rem] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.07] p-7 shadow-2xl shadow-black/30 backdrop-blur-xl md:p-8"
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+      className="group relative min-h-[25rem] w-[min(85vw,360px)] shrink-0 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.07] p-7 shadow-2xl shadow-black/30 backdrop-blur-xl lg:w-[420px] md:p-8"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(193,139,71,0.2),transparent_34%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_42%)] opacity-80 transition duration-500 group-hover:opacity-100" />
       <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-accent/10 blur-3xl transition duration-500 group-hover:bg-accent/20" />
@@ -46,12 +43,14 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         </div>
 
         <p className="text-lg leading-8 text-gray-200 md:text-xl">
-          “{testimonial.review}”
+          "{testimonial.review}"
         </p>
       </div>
     </motion.article>
   )
 }
+
+const doubled = [...testimonials, ...testimonials]
 
 export default function Testimonials() {
   return (
@@ -77,49 +76,17 @@ export default function Testimonials() {
             unmistakable R&G feeling.
           </p>
         </motion.div>
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.18 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="[&_.swiper-slide]:h-auto [&_.swiper-slide]:scale-95 [&_.swiper-slide]:opacity-70 [&_.swiper-slide]:transition-all [&_.swiper-slide]:duration-500 [&_.swiper-slide-active]:scale-100 [&_.swiper-slide-active]:opacity-100"
-        >
-          <Swiper
-            modules={[Autoplay, A11y]}
-            loop
-            centeredSlides
-            grabCursor
-            speed={900}
-            spaceBetween={24}
-            autoplay={{
-              delay: 4200,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 18,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 22,
-              },
-              1180: {
-                slidesPerView: 3,
-                spaceBetween: 28,
-              },
-            }}
-            aria-label="Guest testimonials"
-          >
-            {testimonials.map((testimonial) => (
-              <SwiperSlide key={testimonial.id}>
-                <TestimonialCard testimonial={testimonial} />
-              </SwiperSlide>
+      {/* Full-bleed marquee track — breaks out of the section's px padding */}
+      <div className="-mx-6 md:-mx-12 lg:-mx-20">
+        <div className="group">
+          <div className="flex w-max animate-marquee gap-5 group-hover:[animation-play-state:paused] md:gap-7">
+            {doubled.map((testimonial, i) => (
+              <TestimonialCard key={`${testimonial.id}-${i}`} testimonial={testimonial} />
             ))}
-          </Swiper>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )

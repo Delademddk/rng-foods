@@ -13,6 +13,15 @@ export default {
         heading: ["Playfair Display", "serif"],
         body: ["Inter", "sans-serif"],
       },
+      animation: {
+        marquee: 'marquee 40s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+      },
     },
   },
   plugins: [],

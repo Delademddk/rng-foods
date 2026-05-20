@@ -85,15 +85,34 @@ function ScrollManager() {
   }, [])
 
   useEffect(() => {
+    const scrollToHash = (hash: string) => {
+      const target = document.querySelector(hash)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return true
+      }
+      return false
+    }
+
     if (isFirstRender.current) {
       isFirstRender.current = false
+      if (location.hash) {
+        // Wait one tick for the DOM to settle on initial load
+        const t = setTimeout(() => scrollToHash(location.hash), 100)
+        return () => clearTimeout(t)
+      }
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
       return
     }
 
     if (location.hash) {
-      const target = document.querySelector(location.hash)
-      target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Try immediately (same-page hash navigation)
+      if (!scrollToHash(location.hash)) {
+        // Cross-page: AnimatePresence mode="wait" delays mounting the new page
+        // until the exit animation (~450 ms) finishes — retry after it completes.
+        const t = setTimeout(() => scrollToHash(location.hash), 600)
+        return () => clearTimeout(t)
+      }
       return
     }
 
