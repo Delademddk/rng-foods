@@ -1,9 +1,15 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import banner from "../assets/banner.avif";
 
 export default function Hero() {
   return (
-    <section className="h-screen bg-hero bg-cover bg-center relative flex items-center">
+    <section
+      className="h-screen bg-cover bg-center relative flex items-center"
+      style={{
+        backgroundImage: `url(${banner})`,
+      }}
+    >
       <div className="absolute inset-0 bg-black/70" />
 
       <div className="relative z-10 section-padding max-w-5xl">
@@ -23,8 +29,8 @@ export default function Hero() {
           transition={{ delay: 0.3 }}
           className="mt-6 max-w-2xl text-lg text-gray-300"
         >
-          Experience the heart of Ghanaian chop-bar culture in Tesano.
-          Delicious local meals, vibrant atmosphere, and unforgettable flavor.
+          Experience the heart of Ghanaian chop-bar culture in Tesano. Delicious
+          local meals, vibrant atmosphere, and unforgettable flavor.
         </motion.p>
 
         <motion.div
@@ -49,5 +55,5 @@ export default function Hero() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
