@@ -1,32 +1,32 @@
-import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Link, useLocation } from 'react-router-dom'
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/#about' },
-  { label: 'Menu', to: '/menu' },
-  { label: 'Gallery', to: '/gallery' },
-  { label: 'Events', to: '/events' },
-  { label: 'Visit', to: '/#contact' },
-]
+  { label: "Home", to: "/" },
+  { label: "About", to: "/#about" },
+  { label: "Menu", to: "/menu" },
+  { label: "Gallery", to: "/gallery" },
+  { label: "Events", to: "/events" },
+  { label: "Visit", to: "/#contact" },
+];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-  const { hash, pathname } = useLocation()
+  const [open, setOpen] = useState(false);
+  const { hash, pathname } = useLocation();
 
   const isActiveLink = (to: string) => {
-    if (to === '/') {
-      return pathname === '/' && !hash
+    if (to === "/") {
+      return pathname === "/" && !hash;
     }
 
-    if (to.startsWith('/#')) {
-      return pathname === '/' && hash === to.replace('/', '')
+    if (to.startsWith("/#")) {
+      return pathname === "/" && hash === to.replace("/", "");
     }
 
-    return pathname === to
-  }
+    return pathname === to;
+  };
 
   return (
     <motion.nav
@@ -45,14 +45,14 @@ export default function Navbar() {
 
         <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest">
           {navLinks.map((link) => {
-            const active = isActiveLink(link.to)
+            const active = isActiveLink(link.to);
 
             return (
               <Link
                 key={link.label}
                 to={link.to}
                 className={`relative transition hover:text-accent ${
-                  active ? 'text-accent' : 'text-white'
+                  active ? "text-accent" : "text-white"
                 }`}
               >
                 {link.label}
@@ -63,7 +63,7 @@ export default function Navbar() {
                   />
                 )}
               </Link>
-            )
+            );
           })}
         </div>
 
@@ -89,7 +89,7 @@ export default function Navbar() {
               to={link.to}
               onClick={() => setOpen(false)}
               className={`uppercase tracking-widest transition hover:text-accent ${
-                isActiveLink(link.to) ? 'text-accent' : 'text-white'
+                isActiveLink(link.to) ? "text-accent" : "text-white"
               }`}
             >
               {link.label}
@@ -98,5 +98,5 @@ export default function Navbar() {
         </motion.div>
       )}
     </motion.nav>
-  )
+  );
 }
