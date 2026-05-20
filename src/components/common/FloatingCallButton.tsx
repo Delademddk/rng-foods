@@ -1,15 +1,13 @@
 import { Phone } from 'lucide-react'
 import { motion } from 'framer-motion'
 
-const PRIMARY_PHONE_NUMBER = '+233 54 352 6775'
-const PRIMARY_TEL_LINK = 'tel:+233543526775'
+const PRIMARY_TEL_LINK = 'tel:+233547144756'
 
 export default function FloatingCallButton() {
   return (
     <motion.a
       href={PRIMARY_TEL_LINK}
-      aria-label="Call Bush Canteen"
-      title={`Call Bush Canteen at ${PRIMARY_PHONE_NUMBER}`}
+      aria-label="Call R&G Foods"
       className="group fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-[calc(1.25rem+env(safe-area-inset-right))] z-[9999] flex h-16 min-h-16 w-16 min-w-16 items-center justify-center rounded-full border border-accent/55 bg-[linear-gradient(135deg,#1b120d_0%,#5B3A29_48%,#C18B47_100%)] text-white shadow-[0_18px_45px_rgba(0,0,0,0.42),0_0_28px_rgba(193,139,71,0.28)] outline-none transition-colors duration-300 hover:border-accent hover:shadow-[0_22px_55px_rgba(0,0,0,0.48),0_0_36px_rgba(193,139,71,0.38)] focus-visible:ring-4 focus-visible:ring-accent/35 focus-visible:ring-offset-2 focus-visible:ring-offset-dark sm:bottom-6 sm:right-6 sm:h-14 sm:min-h-14 sm:w-14 sm:min-w-14"
       initial={{ opacity: 0, scale: 0.82, y: 18 }}
       animate={{

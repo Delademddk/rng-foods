@@ -4,9 +4,9 @@ import BuffetImg from "../assets/buffet.jpg";
 
 export const dishes = [
   {
-    name: "Buffet",
+    name: "Food Hamper",
     image: BuffetImg,
-    description: "Traditional Ghanaian fufu served with flavorful soup.",
+    description: "A lavish culinary loaded hamper.",
   },
   {
     name: "Banku & Tilapia",

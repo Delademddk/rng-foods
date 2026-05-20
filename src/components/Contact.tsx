@@ -26,8 +26,8 @@ export default function Contact() {
             <div className="flex gap-4">
               <Phone className="text-accent" />
               <div>
-                <p>+233 20 000 0000</p>
-                <p>+233 50 000 0000</p>
+                <p>+233 54 714 4756</p>
+                <p>+233 55 000 7554</p>
               </div>
             </div>
 
