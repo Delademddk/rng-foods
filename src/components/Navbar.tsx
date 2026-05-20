@@ -4,15 +4,28 @@ import { motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 
 const navLinks = [
+  { label: 'Home', to: '/' },
   { label: 'About', to: '/#about' },
   { label: 'Menu', to: '/menu' },
-  { label: 'Gallery', to: '/#gallery' },
+  { label: 'Gallery', to: '/gallery' },
   { label: 'Visit', to: '/#contact' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const { pathname } = useLocation()
+  const { hash, pathname } = useLocation()
+
+  const isActiveLink = (to: string) => {
+    if (to === '/') {
+      return pathname === '/' && !hash
+    }
+
+    if (to.startsWith('/#')) {
+      return pathname === '/' && hash === to.replace('/', '')
+    }
+
+    return pathname === to
+  }
 
   return (
     <motion.nav
@@ -31,7 +44,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest">
           {navLinks.map((link) => {
-            const active = link.to === '/menu' && pathname === '/menu'
+            const active = isActiveLink(link.to)
 
             return (
               <Link
@@ -75,9 +88,7 @@ export default function Navbar() {
               to={link.to}
               onClick={() => setOpen(false)}
               className={`uppercase tracking-widest transition hover:text-accent ${
-                link.to === '/menu' && pathname === '/menu'
-                  ? 'text-accent'
-                  : 'text-white'
+                isActiveLink(link.to) ? 'text-accent' : 'text-white'
               }`}
             >
               {link.label}

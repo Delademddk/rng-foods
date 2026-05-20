@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
 import Home from './pages/Home'
+import GalleryPage from './pages/GalleryPage'
 import MenuPage from './pages/MenuPage'
 import FloatingCallButton from './components/common/FloatingCallButton'
 
@@ -38,6 +39,14 @@ function AnimatedRoutes() {
             </PageShell>
           }
         />
+        <Route
+          path="/gallery"
+          element={
+            <PageShell>
+              <GalleryPage />
+            </PageShell>
+          }
+        />
       </Routes>
     </AnimatePresence>
   )
@@ -58,8 +67,21 @@ function PageShell({ children }: { children: ReactNode }) {
 
 function ScrollManager() {
   const location = useLocation()
+  const isFirstRender = useRef(true)
 
   useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+      return
+    }
+
     if (location.hash) {
       const target = document.querySelector(location.hash)
       target?.scrollIntoView({ behavior: 'smooth', block: 'start' })

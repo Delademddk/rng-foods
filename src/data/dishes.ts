@@ -1,11 +1,11 @@
 import BankuImg from "../assets/banku.jpg";
 import WaakyeImg from "../assets/waakye.webp";
+import BuffetImg from "../assets/buffet.jpg";
 
 export const dishes = [
   {
-    name: "Fufu & Light Soup",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJjFRq9Zch3xAXoeOSbyDSj4OnI28tAQjh0g&sF",
+    name: "Buffet",
+    image: BuffetImg,
     description: "Traditional Ghanaian fufu served with flavorful soup.",
   },
   {
