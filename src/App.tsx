@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
+import EventsPage from './pages/EventsPage'
 import Home from './pages/Home'
 import GalleryPage from './pages/GalleryPage'
 import MenuPage from './pages/MenuPage'
@@ -44,6 +45,14 @@ function AnimatedRoutes() {
           element={
             <PageShell>
               <GalleryPage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/events"
+          element={
+            <PageShell>
+              <EventsPage />
             </PageShell>
           }
         />

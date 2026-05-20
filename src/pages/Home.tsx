@@ -4,7 +4,7 @@ import About from '../components/About'
 import Dishes from '../components/Dishes'
 import Experience from '../components/Experience'
 import Gallery from '../components/Gallery'
-import Testimonials from '../components/Testimonials'
+import Testimonials from '../components/home/Testimonials'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
