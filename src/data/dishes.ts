@@ -1,6 +1,6 @@
-import BankuImg from "../assets/banku.jpg";
-import WaakyeImg from "../assets/waakye.webp";
-import BuffetImg from "../assets/buffet.jpg";
+import BankuImg from "../../assets/banku.jpg";
+import WaakyeImg from "../../assets/waakye.webp";
+import BuffetImg from "../../assets/buffet.jpg";
 
 export const dishes = [
   {

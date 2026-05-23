@@ -1,11 +1,11 @@
-import bankuImage from '../assets/banku.jpg'
-import buffetImage from '../assets/buffet.jpg'
-import friendshipImage from '../assets/friendship.jpg'
-import jollofImage from '../assets/jollof.jpg'
-import loadRiceImage from '../assets/load-rice.jpg'
-import oilRiceImage from '../assets/oil-rice.jpg'
-import plentyRiceImage from '../assets/plenty-rice.jpg'
-import rizoImage from '../assets/rizo.jpg'
+import bankuImage from '../../assets/banku.jpg'
+import buffetImage from '../../assets/buffet.jpg'
+import friendshipImage from '../../assets/friendship.jpg'
+import jollofImage from '../../assets/jollof.jpg'
+import loadRiceImage from '../../assets/load-rice.jpg'
+import oilRiceImage from '../../assets/oil-rice.jpg'
+import plentyRiceImage from '../../assets/plenty-rice.jpg'
+import rizoImage from '../../assets/rizo.jpg'
 
 export type GalleryItem = {
   id: number

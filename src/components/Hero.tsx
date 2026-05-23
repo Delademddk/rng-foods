@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import banner from "../assets/banner.avif";
+import banner from "../../assets/banner.avif";
 
 export default function Hero() {
   return (

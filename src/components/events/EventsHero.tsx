@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { CalendarDays } from 'lucide-react'
-import heroImage from '../../assets/friendship.jpg'
+import heroImage from '../../../assets/friendship.jpg'
 
 export default function EventsHero() {
   const { scrollY } = useScroll()

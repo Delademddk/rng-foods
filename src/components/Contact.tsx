@@ -43,7 +43,7 @@ export default function Contact() {
 
         <div className="group relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-sm border border-white/10 shadow-2xl w-full h-[450px] transition-all duration-500 hover:scale-[1.01] ">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d589.2936622615845!2d-0.22595775392540324!3d5.598998754999542!2m3!1f0!2f0!3f0!3m2!1i1024!1i768!4f13.1!3m3!1m2!1s0xfdf9980b092f285%3A0xa5143f70ea5c26df!2sPitstop!5e1!3m2!1sen!2sgh!4v1779035954580!5m2!1sen!2sgh"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d464.3572394997647!2d-0.2244410633993344!3d5.5978896202693305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf99cca8369f4f%3A0xec20004ca88c2055!2sR%20and%20G%20Foods!5e1!3m2!1sen!2sgh!4v1779545354695!5m2!1sen!2sgh"
             className="w-full h-full rounded-3xl"
             style={{ border: 0 }}
             allowFullScreen

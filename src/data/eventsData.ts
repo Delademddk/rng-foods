@@ -1,9 +1,9 @@
-import buffetImage from '../assets/buffet.jpg'
-import friendshipImage from '../assets/friendship.jpg'
-import jollofPosterImage from '../assets/jollof-poster.jpg'
-import plentyRiceImage from '../assets/plenty-rice.jpg'
-import rizoImage from '../assets/rizo.jpg'
-import waakyeImage from '../assets/waakye.webp'
+import buffetImage from '../../assets/buffet.jpg'
+import friendshipImage from '../../assets/friendship.jpg'
+import jollofPosterImage from '../../assets/jollof-poster.jpg'
+import plentyRiceImage from '../../assets/plenty-rice.jpg'
+import rizoImage from '../../assets/rizo.jpg'
+import waakyeImage from '../../assets/waakye.webp'
 
 export type EventItem = {
   id: number

@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Camera } from 'lucide-react'
-import heroImage from '../../assets/banner.avif'
+import heroImage from '../../../assets/banner.avif'
 
 export default function GalleryHero() {
   const { scrollY } = useScroll()

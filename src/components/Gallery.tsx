@@ -1,6 +1,6 @@
-import PoolImg from '../assets/pool.jpg' 
-import ChopbarImg from '../assets/chopbarvibes.jpg'
-import LogoTmg from '../assets/logo.jpg'
+import PoolImg from '../../assets/pool.jpg' 
+import ChopbarImg from '../../assets/chopbarvibes.jpg'
+import LogoTmg from '../../assets/logo.jpg'
 
 const images = [
   PoolImg,
