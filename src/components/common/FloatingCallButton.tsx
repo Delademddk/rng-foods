@@ -1,7 +1,7 @@
 import { Phone } from 'lucide-react'
 import { motion } from 'framer-motion'
 
-const PRIMARY_TEL_LINK = 'tel:+233547144756'
+const PRIMARY_TEL_LINK = 'tel:+233550007554'
 
 export default function FloatingCallButton() {
   return (

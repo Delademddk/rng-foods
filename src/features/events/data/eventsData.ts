@@ -18,7 +18,7 @@ export type EventItem = {
 export const eventsData: EventItem[] = [
   {
     id: 1,
-    title: 'Friday Live Band Night',
+    title: 'Chopbar Vibes',
     image: friendshipImage,
     description:
       'Ease into the weekend with live music, chilled drinks, and authentic meals made for shared tables.',
@@ -28,7 +28,7 @@ export const eventsData: EventItem[] = [
   },
   {
     id: 2,
-    title: 'Sunday Family Buffet',
+    title: 'Sunday Special',
     image: buffetImage,
     description:
       'A generous Sunday spread of local favorites, continental dishes, and warm hospitality for the whole family.',
@@ -38,7 +38,7 @@ export const eventsData: EventItem[] = [
   },
   {
     id: 3,
-    title: 'Jollof & Grill Evening',
+    title: 'Live Band Night',
     image: jollofPosterImage,
     description:
       'Smoky jollof, grilled proteins, pepper sauces, and a relaxed evening built around bold Ghanaian flavor.',
@@ -48,7 +48,7 @@ export const eventsData: EventItem[] = [
   },
   {
     id: 4,
-    title: 'Private Celebration Tables',
+    title: 'Sit-in and Out',
     image: rizoImage,
     description:
       'Reserve a polished space for birthdays, team dinners, intimate celebrations, and memorable gatherings.',
@@ -58,7 +58,7 @@ export const eventsData: EventItem[] = [
   },
   {
     id: 5,
-    title: 'Lunch Bowl Specials',
+    title: 'Attieke Chics',
     image: waakyeImage,
     description:
       'Midday comfort plates served fast, fresh, and full of flavor for workers, students, and neighborhood guests.',
@@ -68,7 +68,7 @@ export const eventsData: EventItem[] = [
   },
   {
     id: 6,
-    title: 'Community Food Table',
+    title: 'Corporate',
     image: plentyRiceImage,
     description:
       'A lively monthly gathering celebrating food, culture, conversation, and the people who make R&G feel alive.',

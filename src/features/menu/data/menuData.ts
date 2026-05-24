@@ -1,3 +1,12 @@
+import Redred from '../../../../assets/images/food/red_red.jpeg'
+import Omotuo from '../../../../assets/images/food/omotuo.jpeg'
+import Ampesie from '../../../../assets/images/food/ampesi.jpeg'
+import Tuozaafi from '../../../../assets/images/food/tuozaafi.jpeg'
+import Konkonte from '../../../../assets/images/food/konkonte.jpeg'
+import Spaghetti from '../../../../assets/images/food/spaghetti.jpeg'
+import Yamchips from '../../../../assets/images/food/yamchips.jpeg'
+import Anguamu from '../../../../assets/images/food/anguamo.jpeg'
+
 export type MenuCategoryKey =
   | 'localDishes'
   | 'continental'
@@ -60,12 +69,68 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
     },
     {
       id: 'fried-goat',
-      name: 'Fried Rice',
+      name: 'Red Red',
       description:
         'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
       price: 'GH₵ 70',
       image:
-        'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/fried-rice-and-chicken.jpg',
+        Redred,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+        {
+      id: 'omotuo-groundnut-soup',
+      name: 'Omotuo & Groundnut Soup',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 40',
+      image:
+        Omotuo,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+
+      {
+      id: 'ampesie',
+      name: 'Ampesie',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 40',
+      image:
+        Ampesie,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+{
+      id: 'Tuo-zaafi',
+      name: 'Tuo-zaafi',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 60',
+      image:
+        Tuozaafi,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+    {
+      id: 'konkonte',
+      name: 'Konkonte',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 60',
+      image:
+        Konkonte,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+    {
+      id: 'anguamu',
+      name: 'Anguamu',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 60',
+      image:
+        Anguamu,
       category: 'localDishes',
       tags: ['Spicy'],
     },
@@ -101,6 +166,26 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
       price: 'GH₵ 60',
       image:
         'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=1200&auto=format&fit=crop',
+      category: 'continental',
+    },
+    {
+      id: 'spaghetti',
+      name: 'R&G Spaghetti',
+      description:
+        'Layered chicken, egg, tomato, lettuce, and house dressing with crispy fries.',
+      price: 'GH₵ 60',
+      image:
+        Spaghetti,
+      category: 'continental',
+    },
+    {
+      id: 'yamchips',
+      name: 'R&G Yam Chips',
+      description:
+        'Crispy yam chips served with a side of your choice.',
+      price: 'GH₵ 40',
+      image:
+        Yamchips,
       category: 'continental',
     },
   ],
