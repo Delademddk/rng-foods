@@ -36,7 +36,7 @@ const socialLinks: SocialLink[] = [
   },
   {
     name: "WhatsApp",
-    href: "https://wa.me/233547144756",
+    href: "https://wa.me/233550007554",
     ariaLabel: "Chat with R&G Foods on WhatsApp",
     icon: FaWhatsapp,
   },

@@ -14,7 +14,7 @@ export default function Contact() {
           </h2>
 
           <div className="space-y-8 text-gray-300">
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
               <MapPin className="text-accent" />
               <p>
                 GCTU / Tesano, Accra
@@ -23,19 +23,23 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
               <Phone className="text-accent" />
-              <div>
-                <p>+233 54 714 4756</p>
-                <p>+233 55 000 7554</p>
+              <div className="flex flex-col gap-1">
+                <a href="tel:+233550007554" className="hover:text-accent py-1 transition-colors">
+                  +233 55 000 7554
+                </a>
+                <a href="tel:+233209644904" className="hover:text-accent py-1 transition-colors">
+                  +233 20 964 4904
+                </a>
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
               <Clock className="text-accent" />
               <div>
-                <p>Monday - Saturday</p>
-                <p>11:30 AM - 7:00 PM</p>
+                <p>Monday - Sunday</p>
+                <p>8:00 AM - 11:00 PM</p>
               </div>
             </div>
           </div>
