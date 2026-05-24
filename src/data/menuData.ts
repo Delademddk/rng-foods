@@ -1,3 +1,4 @@
+import Gob3Img from '../../assets/images/gob3.jpeg'
 export type MenuCategoryKey =
   | 'localDishes'
   | 'continental'
@@ -60,12 +61,12 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
     },
     {
       id: 'fried-goat',
-      name: 'Fried Rice',
+      name: 'Red Red',
       description:
         'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
       price: 'GH₵ 70',
       image:
-        'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/fried-rice-and-chicken.jpg',
+        Gob3Img,
       category: 'localDishes',
       tags: ['Spicy'],
     },
