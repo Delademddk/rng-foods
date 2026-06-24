@@ -21,3 +21,21 @@ body {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(12px);
 }
+
+.hero-background {
+  background-image: url('/assets/images/branding/banner.avif'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+}
+
+.events-background {
+  background-image: url('/assets/images/events/friendship.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+}
