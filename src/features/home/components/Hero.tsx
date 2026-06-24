@@ -1,15 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import banner from "../../../../assets/images/branding/banner.avif";
+import "../../../index.css";
 
 export default function Hero() {
   return (
-    <section
-      className="h-screen bg-cover bg-center relative flex items-center"
-      style={{
-        backgroundImage: `url(${banner})`,
-      }}
-    >
+    <section className="hero-background h-screen bg-cover bg-center relative flex items-center">
       <div className="absolute inset-0 bg-black/70" />
 
       <div className="relative z-10 section-padding max-w-5xl">
