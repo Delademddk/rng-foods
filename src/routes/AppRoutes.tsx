@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
+import AdminPage from '../features/admin/AdminPage'
 import EventsPage from '../features/events/EventsPage'
 import GalleryPage from '../features/gallery/GalleryPage'
 import HomePage from '../features/home/HomePage'
@@ -54,6 +55,7 @@ function AnimatedRoutes() {
             </PageShell>
           }
         />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </AnimatePresence>
   )
