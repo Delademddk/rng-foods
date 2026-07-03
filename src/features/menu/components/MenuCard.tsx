@@ -1,22 +1,31 @@
-import { motion } from 'framer-motion'
-import { FaWhatsapp } from 'react-icons/fa'
-import type { MenuItem } from '../data/menuData'
+import { memo } from "react";
+import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
+import type { MenuItem } from "../data/menuData";
 
-const WHATSAPP_NUMBER = '233550007554'
+const WHATSAPP_NUMBER = "233550007554";
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+} as const;
+
+const imageHover = { scale: 1.05 };
+const imageHoverTransition = { duration: 0.7, ease: "easeOut" } as const;
 
 type MenuCardProps = {
   item: MenuItem;
 };
 
-export default function MenuCard({ item }: MenuCardProps) {
-  const waMessage = `Hello R&G Foods, I would like to order ${item.name} for ${item.price}.`
-  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`
+function MenuCard({ item }: MenuCardProps) {
+  const waMessage = `Hello R&G Foods, I would like to order ${item.name} for ${item.price}.`;
+  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
 
   return (
     <motion.article
       variants={cardVariants}
       whileHover={{ y: -6, scale: 1.01 }}
-      transition={{ duration: 0.35, ease: 'easeOut' }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
       className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.055] shadow-2xl shadow-black/30 backdrop-blur-xl transition hover:border-accent/50 hover:bg-white/[0.085]"
     >
       {/* WhatsApp Order Now button — top-right corner */}
