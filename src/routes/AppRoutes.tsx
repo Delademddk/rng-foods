@@ -1,13 +1,12 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { lazy, Suspense, useEffect, useRef } from "react";
-import type { ReactNode } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
-import Loader from "../components/ui/Loader";
-
-const HomePage = lazy(() => import("../features/home/HomePage"));
-const MenuPage = lazy(() => import("../features/menu/MenuPage"));
-const GalleryPage = lazy(() => import("../features/gallery/GalleryPage"));
-const EventsPage = lazy(() => import("../features/events/EventsPage"));
+import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import type { ReactNode } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import AdminPage from '../features/admin/AdminPage'
+import EventsPage from '../features/events/EventsPage'
+import GalleryPage from '../features/gallery/GalleryPage'
+import HomePage from '../features/home/HomePage'
+import MenuPage from '../features/menu/MenuPage'
 
 export default function AppRoutes() {
   return (
@@ -23,48 +22,41 @@ function AnimatedRoutes() {
 
   return (
     <AnimatePresence mode="wait">
-      <Suspense
-        fallback={
-          <div className="grid min-h-screen place-items-center bg-dark text-white">
-            <Loader />
-          </div>
-        }
-      >
-        <Routes location={location} key={location.pathname}>
-          <Route
-            path="/"
-            element={
-              <PageShell>
-                <HomePage />
-              </PageShell>
-            }
-          />
-          <Route
-            path="/menu"
-            element={
-              <PageShell>
-                <MenuPage />
-              </PageShell>
-            }
-          />
-          <Route
-            path="/gallery"
-            element={
-              <PageShell>
-                <GalleryPage />
-              </PageShell>
-            }
-          />
-          <Route
-            path="/events"
-            element={
-              <PageShell>
-                <EventsPage />
-              </PageShell>
-            }
-          />
-        </Routes>
-      </Suspense>
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <PageShell>
+              <HomePage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/menu"
+          element={
+            <PageShell>
+              <MenuPage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/gallery"
+          element={
+            <PageShell>
+              <GalleryPage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/events"
+          element={
+            <PageShell>
+              <EventsPage />
+            </PageShell>
+          }
+        />
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
     </AnimatePresence>
   );
 }
