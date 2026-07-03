@@ -9,7 +9,7 @@ import Anguamu from '../../../../assets/images/food/anguamo.jpeg'
 
 export type MenuCategoryKey =
   | 'localDishes'
-  | 'localDishes1'
+  // | 'localDishes1'
   | 'continental'
   | 'softDrinks'
   | 'hardDrinks'
@@ -136,108 +136,93 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
       tags: ['Spicy'],
     },
   ],
-    localDishes1: [
-    {
-      id: 'fufu-light-soup',
-      name: 'Fufu & Light Soup',
-      description:
-        'Hand-pounded fufu served with aromatic light soup, tender meat, and garden-fresh herbs.',
-      price: 'GH₵ 65',
-      image:
-        'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/fufu-and-chicken2.jpg',
-      category: 'localDishes',
-      tags: ['Popular'],
-    },
-    {
-      id: 'banku-tilapia',
-      name: 'Banku & Grilled Tilapia',
-      description:
-        'Char-grilled tilapia with banku, shito, hot pepper, and crisp local vegetables.',
-      price: 'GH₵ 80',
-      image:
-        'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/banku-2.jpg',
-      category: 'localDishes',
-      tags: ['Spicy', 'Chef Special'],
-    },
-    {
-      id: 'waakye-special',
-      name: 'Waakye Special',
-      description:
-        'Rice and beans with gari, spaghetti, egg, stew, shito, and your choice of protein.',
-      price: 'GH₵ 55',
-      image:
-        'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/Ghanian-Waakye-ox-1.webp',
-      category: 'localDishes',
-      tags: ['Popular'],
-    },
-    {
-      id: 'fried-goat',
-      name: 'Red Red',
-      description:
-        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
-      price: 'GH₵ 70',
-      image:
-        Redred,
-      category: 'localDishes',
-      tags: ['Spicy'],
-    },
-        {
-      id: 'omotuo-groundnut-soup',
-      name: 'Omotuo & Groundnut Soup',
-      description:
-        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
-      price: 'GH₵ 40',
-      image:
-        Omotuo,
-      category: 'localDishes',
-      tags: ['Spicy'],
-    },
-
-      {
-      id: 'ampesie',
-      name: 'Ampesie',
-      description:
-        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
-      price: 'GH₵ 40',
-      image:
-        Ampesie,
-      category: 'localDishes',
-      tags: ['Spicy'],
-    },
-{
-      id: 'Tuo-zaafi',
-      name: 'Tuo-zaafi',
-      description:
-        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
-      price: 'GH₵ 60',
-      image:
-        Tuozaafi,
-      category: 'localDishes',
-      tags: ['Spicy'],
-    },
-    {
-      id: 'konkonte',
-      name: 'Konkonte',
-      description:
-        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
-      price: 'GH₵ 60',
-      image:
-        Konkonte,
-      category: 'localDishes',
-      tags: ['Spicy'],
-    },
-    {
-      id: 'anguamu',
-      name: 'Anguamu',
-      description:
-        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
-      price: 'GH₵ 60',
-      image:
-        Anguamu,
-      category: 'localDishes',
-      tags: ['Spicy'],
-    },
-  ],
+    // localDishes1: [
+    // {
+    //   id: 'fufu-light-soup',
+    //   name: 'Fufu & Light Soup',
+    //   description:
+    //     'Hand-pounded fufu served with aromatic light soup, tender meat, and garden-fresh herbs.',
+    //   price: 'GH₵ 65',
+    //   image:
+    //     'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/fufu-and-chicken2.jpg',
+    //   category: 'localDishes',
+    //   tags: ['Popular'],
+    // },
+    // {
+    //   id: 'banku-tilapia',
+    //   name: 'Banku & Grilled Tilapia',
+    //   description:
+    //     'Char-grilled tilapia with banku, shito, hot pepper, and crisp local vegetables.',
+    //   price: 'GH₵ 80',
+    //   image:
+    //     'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/banku-2.jpg',
+    //   category: 'localDishes',
+    //   tags: ['Spicy', 'Chef Special'],
+    // },
+    // {
+    //   id: 'waakye-special',
+    //   name: 'Waakye Special',
+    //   description:
+    //     'Rice and beans with gari, spaghetti, egg, stew, shito, and your choice of protein.',
+    //   price: 'GH₵ 55',
+    //   image:
+    //     'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/Ghanian-Waakye-ox-1.webp',
+    //   category: 'localDishes',
+    //   tags: ['Popular'],
+    // },
+    // {
+    //   id: 'grilled-chicken-chips',
+    //   name: 'Grilled Chicken & Chips',
+    //   description:
+    //     'Herb-marinated chicken served with golden fries, coleslaw, and pepper sauce.',
+    //   price: 'GH₵ 75',
+    //   image:
+    //     'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?q=80&w=1200&auto=format&fit=crop',
+    //   category: 'continental',
+    //   tags: ['Popular'],
+    // },
+    // {
+    //   id: 'beef-stir-fry',
+    //   name: 'Beef Stir Fry',
+    //   description:
+    //     'Tender beef strips tossed with vegetables, ginger, garlic, and steamed rice.',
+    //   price: 'GH₵ 85',
+    //   image:
+    //     'https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1200&auto=format&fit=crop',
+    //   category: 'continental',
+    //   tags: ['Chef Special'],
+    // },
+    // {
+    //   id: 'club-sandwich',
+    //   name: 'R&G Club Sandwich',
+    //   description:
+    //     'Layered chicken, egg, tomato, lettuce, and house dressing with crispy fries.',
+    //   price: 'GH₵ 60',
+    //   image:
+    //     'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=1200&auto=format&fit=crop',
+    //   category: 'continental',
+    // },
+    // {
+    //   id: 'spaghetti',
+    //   name: 'R&G Spaghetti',
+    //   description:
+    //     'Layered chicken, egg, tomato, lettuce, and house dressing with crispy fries.',
+    //   price: 'GH₵ 60',
+    //   image:
+    //     Spaghetti,
+    //   category: 'continental',
+    // },
+    // {
+    //   id: 'yamchips',
+    //   name: 'R&G Yam Chips',
+    //   description:
+    //     'Crispy yam chips served with a side of your choice.',
+    //   price: 'GH₵ 40',
+    //   image:
+    //     Yamchips,
+    //   category: 'continental',
+    // },
+  // ],
 
   continental: [
     {
@@ -371,13 +356,13 @@ export const menuSections: MenuSectionData[] = [
       'Deeply Ghanaian plates built around soup, fire, spice, grains, and slow comfort.',
     items: menuData.localDishes,
   },
-  {
-    id: 'localDishes1',
-    title: 'Local Dishes1',
-    subtitle:
-      'Deeply Ghanaian plates built around soup, fire, spice, grains, and slow comfort.',
-    items: menuData.localDishes,
-  },
+  // {
+  //   id: 'localDishes1',
+  //   title: 'Local Dishes1',
+  //   subtitle:
+  //     'Deeply Ghanaian plates built around soup, fire, spice, grains, and slow comfort.',
+  //   items: menuData.localDishes,
+  // },
   {
     id: 'continental',
     title: 'Continental',
