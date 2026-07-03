@@ -1,5 +1,5 @@
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Visit", to: "/#contact" },
 ];
 
-export default function Navbar() {
+function Navbar() {
   const [open, setOpen] = useState(false);
   const { hash, pathname } = useLocation();
 
@@ -100,3 +100,5 @@ export default function Navbar() {
     </motion.nav>
   );
 }
+
+export default memo(Navbar);

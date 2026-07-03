@@ -1,7 +1,8 @@
 import SocialLinks from "./SocialLinks";
+import { memo } from "react";
 import { motion } from "framer-motion";
 
-export default function Footer() {
+function Footer() {
   return (
     <footer className="border-t border-white/10 py-10 px-6 text-center text-gray-400">
       <motion.div
@@ -16,12 +17,14 @@ export default function Footer() {
       <p>Authentic Ghanaian flavors in the heart of Tesano.</p>
 
       <div className="mt-6">
-          <SocialLinks />
-        </div>
+        <SocialLinks />
+      </div>
 
       <p className="mt-6 text-sm">
         &copy; 2026 R&G Restaurant. All rights reserved.
       </p>
     </footer>
-  )
+  );
 }
+
+export default memo(Footer);

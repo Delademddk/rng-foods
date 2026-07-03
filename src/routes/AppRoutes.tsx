@@ -1,11 +1,13 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useRef } from 'react'
-import type { ReactNode } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
-import EventsPage from '../features/events/EventsPage'
-import GalleryPage from '../features/gallery/GalleryPage'
-import HomePage from '../features/home/HomePage'
-import MenuPage from '../features/menu/MenuPage'
+import { AnimatePresence, motion } from "framer-motion";
+import { lazy, Suspense, useEffect, useRef } from "react";
+import type { ReactNode } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Loader from "../components/ui/Loader";
+
+const HomePage = lazy(() => import("../features/home/HomePage"));
+const MenuPage = lazy(() => import("../features/menu/MenuPage"));
+const GalleryPage = lazy(() => import("../features/gallery/GalleryPage"));
+const EventsPage = lazy(() => import("../features/events/EventsPage"));
 
 export default function AppRoutes() {
   return (
@@ -13,50 +15,58 @@ export default function AppRoutes() {
       <ScrollManager />
       <AnimatedRoutes />
     </>
-  )
+  );
 }
 
 function AnimatedRoutes() {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <PageShell>
-              <HomePage />
-            </PageShell>
-          }
-        />
-        <Route
-          path="/menu"
-          element={
-            <PageShell>
-              <MenuPage />
-            </PageShell>
-          }
-        />
-        <Route
-          path="/gallery"
-          element={
-            <PageShell>
-              <GalleryPage />
-            </PageShell>
-          }
-        />
-        <Route
-          path="/events"
-          element={
-            <PageShell>
-              <EventsPage />
-            </PageShell>
-          }
-        />
-      </Routes>
+      <Suspense
+        fallback={
+          <div className="grid min-h-screen place-items-center bg-dark text-white">
+            <Loader />
+          </div>
+        }
+      >
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageShell>
+                <HomePage />
+              </PageShell>
+            }
+          />
+          <Route
+            path="/menu"
+            element={
+              <PageShell>
+                <MenuPage />
+              </PageShell>
+            }
+          />
+          <Route
+            path="/gallery"
+            element={
+              <PageShell>
+                <GalleryPage />
+              </PageShell>
+            }
+          />
+          <Route
+            path="/events"
+            element={
+              <PageShell>
+                <EventsPage />
+              </PageShell>
+            }
+          />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
-  )
+  );
 }
 
 function PageShell({ children }: { children: ReactNode }) {
@@ -65,42 +75,42 @@ function PageShell({ children }: { children: ReactNode }) {
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -18 }}
-      transition={{ duration: 0.45, ease: 'easeOut' }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 function ScrollManager() {
-  const location = useLocation()
-  const isFirstRender = useRef(true)
+  const location = useLocation();
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual'
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     const scrollToHash = (hash: string) => {
-      const target = document.querySelector(hash)
+      const target = document.querySelector(hash);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        return true
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        return true;
       }
-      return false
-    }
+      return false;
+    };
 
     if (isFirstRender.current) {
-      isFirstRender.current = false
+      isFirstRender.current = false;
       if (location.hash) {
         // Wait one tick for the DOM to settle on initial load
-        const t = setTimeout(() => scrollToHash(location.hash), 100)
-        return () => clearTimeout(t)
+        const t = setTimeout(() => scrollToHash(location.hash), 100);
+        return () => clearTimeout(t);
       }
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-      return
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      return;
     }
 
     if (location.hash) {
@@ -108,14 +118,14 @@ function ScrollManager() {
       if (!scrollToHash(location.hash)) {
         // Cross-page: AnimatePresence mode="wait" delays mounting the new page
         // until the exit animation (~450 ms) finishes, so retry after it completes.
-        const t = setTimeout(() => scrollToHash(location.hash), 600)
-        return () => clearTimeout(t)
+        const t = setTimeout(() => scrollToHash(location.hash), 600);
+        return () => clearTimeout(t);
       }
-      return
+      return;
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [location])
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location]);
 
-  return null
+  return null;
 }

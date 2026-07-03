@@ -1,8 +1,9 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { memo } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-export default function MenuHero() {
-  const { scrollY } = useScroll()
-  const backgroundY = useTransform(scrollY, [0, 500], [0, 120])
+function MenuHero() {
+  const { scrollY } = useScroll();
+  const backgroundY = useTransform(scrollY, [0, 500], [0, 120]);
 
   return (
     <section className="relative min-h-[78vh] overflow-hidden flex items-center pt-24">
@@ -25,7 +26,7 @@ export default function MenuHero() {
         <motion.h1
           initial={{ opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           className="max-w-4xl text-5xl font-heading font-bold leading-tight md:text-7xl lg:text-8xl"
         >
           Our Menu
@@ -42,5 +43,7 @@ export default function MenuHero() {
         </motion.p>
       </div>
     </section>
-  )
+  );
 }
+
+export default memo(MenuHero);

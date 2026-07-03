@@ -9,6 +9,7 @@ import Anguamu from '../../../../assets/images/food/anguamo.jpeg'
 
 export type MenuCategoryKey =
   | 'localDishes'
+  | 'localDishes1'
   | 'continental'
   | 'softDrinks'
   | 'hardDrinks'
@@ -135,6 +136,109 @@ export const menuData: Record<MenuCategoryKey, MenuItem[]> = {
       tags: ['Spicy'],
     },
   ],
+    localDishes1: [
+    {
+      id: 'fufu-light-soup',
+      name: 'Fufu & Light Soup',
+      description:
+        'Hand-pounded fufu served with aromatic light soup, tender meat, and garden-fresh herbs.',
+      price: 'GH₵ 65',
+      image:
+        'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/fufu-and-chicken2.jpg',
+      category: 'localDishes',
+      tags: ['Popular'],
+    },
+    {
+      id: 'banku-tilapia',
+      name: 'Banku & Grilled Tilapia',
+      description:
+        'Char-grilled tilapia with banku, shito, hot pepper, and crisp local vegetables.',
+      price: 'GH₵ 80',
+      image:
+        'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/banku-2.jpg',
+      category: 'localDishes',
+      tags: ['Spicy', 'Chef Special'],
+    },
+    {
+      id: 'waakye-special',
+      name: 'Waakye Special',
+      description:
+        'Rice and beans with gari, spaghetti, egg, stew, shito, and your choice of protein.',
+      price: 'GH₵ 55',
+      image:
+        'https://africanchopbetter.com/wp-content/uploads/sites/110/2024/04/Ghanian-Waakye-ox-1.webp',
+      category: 'localDishes',
+      tags: ['Popular'],
+    },
+    {
+      id: 'fried-goat',
+      name: 'Red Red',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 70',
+      image:
+        Redred,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+        {
+      id: 'omotuo-groundnut-soup',
+      name: 'Omotuo & Groundnut Soup',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 40',
+      image:
+        Omotuo,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+
+      {
+      id: 'ampesie',
+      name: 'Ampesie',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 40',
+      image:
+        Ampesie,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+{
+      id: 'Tuo-zaafi',
+      name: 'Tuo-zaafi',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 60',
+      image:
+        Tuozaafi,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+    {
+      id: 'konkonte',
+      name: 'Konkonte',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 60',
+      image:
+        Konkonte,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+    {
+      id: 'anguamu',
+      name: 'Anguamu',
+      description:
+        'Smoky Ghanaian fried rice with spicy goat, fried plantain, and a bright house salad.',
+      price: 'GH₵ 60',
+      image:
+        Anguamu,
+      category: 'localDishes',
+      tags: ['Spicy'],
+    },
+  ],
+
   continental: [
     {
       id: 'grilled-chicken-chips',
@@ -263,6 +367,13 @@ export const menuSections: MenuSectionData[] = [
   {
     id: 'localDishes',
     title: 'Local Dishes',
+    subtitle:
+      'Deeply Ghanaian plates built around soup, fire, spice, grains, and slow comfort.',
+    items: menuData.localDishes,
+  },
+  {
+    id: 'localDishes1',
+    title: 'Local Dishes1',
     subtitle:
       'Deeply Ghanaian plates built around soup, fire, spice, grains, and slow comfort.',
     items: menuData.localDishes,

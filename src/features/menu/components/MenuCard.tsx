@@ -1,19 +1,27 @@
-import { motion } from 'framer-motion'
-import type { MenuItem } from '../data/menuData'
+import { memo } from "react";
+import { motion } from "framer-motion";
+import type { MenuItem } from "../data/menuData";
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 34 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const cardTransition = { duration: 0.35, ease: "easeOut" } as const;
+const imageHoverTransition = { duration: 0.7, ease: "easeOut" } as const;
+
+const imageHover = { scale: 1.08 };
 
 type MenuCardProps = {
-  item: MenuItem
-}
+  item: MenuItem;
+};
 
-export default function MenuCard({ item }: MenuCardProps) {
+function MenuCard({ item }: MenuCardProps) {
   return (
     <motion.article
-      variants={{
-        hidden: { opacity: 0, y: 34 },
-        visible: { opacity: 1, y: 0 },
-      }}
+      variants={cardVariants}
       whileHover={{ y: -6, scale: 1.01 }}
-      transition={{ duration: 0.35, ease: 'easeOut' }}
+      transition={cardTransition}
       className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.055] shadow-2xl shadow-black/30 backdrop-blur-xl transition hover:border-accent/50 hover:bg-white/[0.085]"
     >
       <div className="grid min-h-full sm:grid-cols-[minmax(180px,0.9fr)_1.1fr]">
@@ -21,8 +29,9 @@ export default function MenuCard({ item }: MenuCardProps) {
           <motion.img
             src={item.image}
             alt={item.name}
-            whileHover={{ scale: 1.08 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            loading="lazy"
+            whileHover={imageHover}
+            transition={imageHoverTransition}
             className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent sm:bg-gradient-to-r sm:from-transparent sm:to-black/25" />
@@ -63,5 +72,7 @@ export default function MenuCard({ item }: MenuCardProps) {
         </div>
       </div>
     </motion.article>
-  )
+  );
 }
+
+export default memo(MenuCard);

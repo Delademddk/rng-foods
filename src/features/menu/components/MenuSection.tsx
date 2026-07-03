@@ -1,37 +1,42 @@
-import { motion } from 'framer-motion'
-import MenuCard from './MenuCard'
-import type { MenuSectionData } from '../data/menuData'
+import { memo } from "react";
+import { motion } from "framer-motion";
+import MenuCard from "./MenuCard";
+import type { MenuSectionData } from "../data/menuData";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 36 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.12,
+    },
+  },
+} as const;
+
+const sectionHeadingVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
 
 type MenuSectionProps = {
-  section: MenuSectionData
-}
+  section: MenuSectionData;
+};
 
-export default function MenuSection({ section }: MenuSectionProps) {
+function MenuSection({ section }: MenuSectionProps) {
   return (
     <motion.section
       id={section.id}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.18 }}
-      variants={{
-        hidden: { opacity: 0, y: 36 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 0.65,
-            ease: 'easeOut',
-            staggerChildren: 0.12,
-          },
-        },
-      }}
+      variants={sectionVariants}
       className="scroll-mt-36 border-t border-white/10 py-20 first:border-t-0"
     >
       <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 24 },
-          visible: { opacity: 1, y: 0 },
-        }}
+        variants={sectionHeadingVariants}
         className="mb-10 grid gap-5 lg:grid-cols-[0.85fr_1fr] lg:items-end"
       >
         <div>
@@ -54,5 +59,6 @@ export default function MenuSection({ section }: MenuSectionProps) {
         ))}
       </div>
     </motion.section>
-  )
+  );
 }
+export default memo(MenuSection);

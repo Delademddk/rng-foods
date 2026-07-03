@@ -28,7 +28,7 @@ export default function MenuPage() {
 
       <div className="section-padding bg-[linear-gradient(180deg,#111111_0%,#17110d_48%,#111111_100%)]">
         <div className="mx-auto max-w-7xl">
-          <MenuSection key={currentSection.id} section={currentSection} />
+          <MenuSection section={currentSection} />
         </div>
       </div>
 

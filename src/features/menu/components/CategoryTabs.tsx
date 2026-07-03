@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import type { MenuCategoryKey, MenuSectionData } from "../data/menuData";
 
@@ -7,11 +8,7 @@ type CategoryTabsProps = {
   onSelect: (id: MenuCategoryKey) => void;
 };
 
-export default function CategoryTabs({
-  sections,
-  selectedId,
-  onSelect,
-}: CategoryTabsProps) {
+function CategoryTabs({ sections, selectedId, onSelect }: CategoryTabsProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -42,3 +39,5 @@ export default function CategoryTabs({
     </motion.div>
   );
 }
+
+export default memo(CategoryTabs);
