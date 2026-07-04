@@ -1,24 +1,28 @@
-import { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
-import { ServerCrash } from 'lucide-react'
-import Footer from '../../components/common/Footer'
-import Navbar from '../../components/common/Navbar'
-import Loader from '../../components/ui/Loader'
-import CategoryTabs from './components/CategoryTabs'
-import MenuHero from './components/MenuHero'
-import MenuSection from './components/MenuSection'
-import { useMenuData } from './hooks/useMenuData'
+import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { ServerCrash } from "lucide-react";
+import Footer from "../../components/common/Footer";
+import Navbar from "../../components/common/Navbar";
+import Loader from "../../components/ui/Loader";
+import CategoryTabs from "./components/CategoryTabs";
+import MenuHero from "./components/MenuHero";
+import MenuSection from "./components/MenuSection";
+import { useMenuData } from "./hooks/useMenuData";
 
 export default function MenuPage() {
-  const { menuSections, isLoading, isError, retry } = useMenuData()
-  const [selectedCategory, setSelectedCategory] = useState('')
+  const { menuSections, isLoading, isError, retry } = useMenuData();
+  const [selectedCategory, setSelectedCategory] = useState("localDishes");
 
-  const activeId = selectedCategory || menuSections[0]?.id || ''
+  const activeId =
+    selectedCategory ||
+    menuSections.find((section) => section.id === "localDishes")?.id ||
+    menuSections[0]?.id ||
+    "";
 
   const currentSection = useMemo(
     () => menuSections.find((s) => s.id === activeId) ?? menuSections[0],
     [menuSections, activeId],
-  )
+  );
 
   return (
     <main className="min-h-screen overflow-hidden bg-dark text-white">
@@ -40,9 +44,12 @@ export default function MenuPage() {
         >
           <ServerCrash className="h-14 w-14 text-accent opacity-75" />
           <div>
-            <p className="font-heading text-xl font-bold text-white">Menu unavailable</p>
+            <p className="font-heading text-xl font-bold text-white">
+              Menu unavailable
+            </p>
             <p className="mt-2 text-sm text-gray-400">
-              We couldn&apos;t load the menu. Please check your connection and try again.
+              We couldn&apos;t load the menu. Please check your connection and
+              try again.
             </p>
           </div>
           <button
@@ -75,5 +82,5 @@ export default function MenuPage() {
 
       <Footer />
     </main>
-  )
+  );
 }

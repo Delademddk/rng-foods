@@ -1,86 +1,113 @@
-import { useEffect, useState } from 'react'
-import { supabase } from '../../../lib/supabaseClient'
-import { toMenuItem } from '../../../lib/menuMapper'
-import type { MenuSectionData } from '../data/menuData'
+import { useEffect, useState } from "react";
+import { supabase } from "../../../lib/supabaseClient";
+import { toMenuItem } from "../../../lib/menuMapper";
+import type { MenuSectionData } from "../data/menuData";
 
 const CATEGORY_META: Record<string, { title: string; subtitle: string }> = {
   localDishes: {
-    title: 'Local Dishes',
-    subtitle: 'Deeply Ghanaian plates built around soup, fire, spice, grains, and slow comfort.',
+    title: "Local Dishes",
+    subtitle:
+      "Deeply Ghanaian plates built around soup, fire, spice, grains, and slow comfort.",
   },
   continental: {
-    title: 'Continental',
-    subtitle: 'Familiar restaurant favorites prepared with the same generous R&G spirit.',
+    title: "Continental",
+    subtitle:
+      "Familiar restaurant favorites prepared with the same generous R&G spirit.",
   },
   softDrinks: {
-    title: 'Soft Drinks',
-    subtitle: 'Cold, refreshing pours for warm Accra afternoons and lingering dinner tables.',
+    title: "Soft Drinks",
+    subtitle:
+      "Cold, refreshing pours for warm Accra afternoons and lingering dinner tables.",
   },
   hardDrinks: {
-    title: 'Hard Drinks',
-    subtitle: 'Bar selections and spirited house pours for slow evenings and good company.',
+    title: "Hard Drinks",
+    subtitle:
+      "Bar selections and spirited house pours for slow evenings and good company.",
   },
   extras: {
-    title: 'Extras',
-    subtitle: 'Condiments, add-ons, and little sides that make every plate complete.',
+    title: "Extras",
+    subtitle:
+      "Condiments, add-ons, and little sides that make every plate complete.",
   },
+};
+
+const CATEGORY_PRIORITY: Record<string, number> = {
+  localDishes: 0,
+  continental: 1,
+};
+
+function sortSections(sections: MenuSectionData[]): MenuSectionData[] {
+  return [...sections].sort((a, b) => {
+    const aPriority = CATEGORY_PRIORITY[a.id] ?? 999;
+    const bPriority = CATEGORY_PRIORITY[b.id] ?? 999;
+
+    if (aPriority !== bPriority) {
+      return aPriority - bPriority;
+    }
+
+    return a.title.localeCompare(b.title);
+  });
 }
 
 function groupIntoSections(rows: Record<string, unknown>[]): MenuSectionData[] {
-  const grouped = new Map<string, ReturnType<typeof toMenuItem>[]>()
+  const grouped = new Map<string, ReturnType<typeof toMenuItem>[]>();
 
   for (const row of rows) {
-    const category = row.category as string
-    if (!grouped.has(category)) grouped.set(category, [])
-    grouped.get(category)!.push(toMenuItem(row as Parameters<typeof toMenuItem>[0]))
+    const category = row.category as string;
+    if (!grouped.has(category)) grouped.set(category, []);
+    grouped
+      .get(category)!
+      .push(toMenuItem(row as Parameters<typeof toMenuItem>[0]));
   }
 
-  return Array.from(grouped.entries()).map(([category, items]) => {
+  const sections = Array.from(grouped.entries()).map(([category, items]) => {
     const meta = CATEGORY_META[category] ?? {
-      title: category.replace(/([A-Z])/g, ' $1').trim(),
-      subtitle: '',
-    }
-    return { id: category, ...meta, items }
-  })
+      title: category.replace(/([A-Z])/g, " $1").trim(),
+      subtitle: "",
+    };
+    return { id: category, ...meta, items };
+  });
+
+  return sortSections(sections);
 }
 
 export function useMenuData() {
-  const [menuSections, setMenuSections] = useState<MenuSectionData[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [isError, setIsError] = useState(false)
-  const [fetchKey, setFetchKey] = useState(0)
+  const [menuSections, setMenuSections] = useState<MenuSectionData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [fetchKey, setFetchKey] = useState(0);
 
   useEffect(() => {
-    let cancelled = false
+    let cancelled = false;
 
     async function load() {
-      setIsLoading(true)
-      setIsError(false)
+      setIsLoading(true);
+      setIsError(false);
 
       const { data, error } = await supabase
-        .from('menu_items')
-        .select('*')
-        .order('category')
+        .from("menu_items")
+        .select("*")
+        .order("category");
 
-      if (cancelled) return
+      if (cancelled) return;
 
       if (error || !data) {
-        setIsError(true)
-        setIsLoading(false)
-        return
+        setIsError(true);
+        setIsLoading(false);
+        return;
       }
 
-      setMenuSections(groupIntoSections(data))
-      setIsLoading(false)
+      setMenuSections(groupIntoSections(data));
+      setIsLoading(false);
     }
 
-    load()
+    load();
     return () => {
-      cancelled = true
-    }
-  }, [fetchKey])
+      cancelled = true;
+    };
+  }, [fetchKey]);
 
-  const retry = () => setFetchKey((k) => k + 1)
+  const retry = () => setFetchKey((k) => k + 1);
 
-  return { menuSections, isLoading, isError, retry }
+  return { menuSections, isLoading, isError, retry };
 }
