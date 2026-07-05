@@ -9,7 +9,7 @@ function MenuHero() {
     <section className="relative min-h-[78vh] overflow-hidden flex items-center pt-24">
       <motion.div
         style={{ y: backgroundY }}
-        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=1800&auto=format&fit=crop')] bg-cover bg-center scale-110"
+        className="menu-background absolute inset-0 scale-110 bg-cover bg-center"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-dark" />
 

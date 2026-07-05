@@ -4,7 +4,7 @@ import jollofImage from '../../../../assets/images/food/jollof.jpg'
 import loadRiceImage from '../../../../assets/images/food/load-rice.jpg'
 import oilRiceImage from '../../../../assets/images/food/oil-rice.jpg'
 import plentyRiceImage from '../../../../assets/images/food/plenty-rice.jpg'
-import friendshipImage from '../../../../assets/images/events/friendship.jpg'
+import friendshipImage from '../../../../public/friendship.jpg'
 import rizoImage from '../../../../assets/images/gallery/restaurant-lounge.jpg'
 
 export type GalleryItem = {

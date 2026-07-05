@@ -23,15 +23,15 @@ const sectionHeadingVariants = {
 
 type MenuSectionProps = {
   section: MenuSectionData;
+  animateOnMount?: boolean;
 };
 
-function MenuSection({ section }: MenuSectionProps) {
+function MenuSection({ section, animateOnMount = true }: MenuSectionProps) {
   return (
     <motion.section
       id={section.id}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.18 }}
+      initial={animateOnMount ? "hidden" : "visible"}
+      animate="visible"
       variants={sectionVariants}
       className="scroll-mt-36 border-t border-white/10 py-20 first:border-t-0"
     >
