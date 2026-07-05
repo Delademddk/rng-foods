@@ -2,7 +2,7 @@ import buffetImage from '../../../../assets/images/food/buffet.jpg'
 import jollofPosterImage from '../../../../assets/images/food/jollof-poster.jpg'
 import plentyRiceImage from '../../../../assets/images/food/plenty-rice.jpg'
 import waakyeImage from '../../../../assets/images/food/waakye.webp'
-import friendshipImage from '../../../../assets/images/events/friendship.jpg'
+import friendshipImage from '../../../../public/friendship.jpg'
 import rizoImage from '../../../../assets/images/gallery/restaurant-lounge.jpg'
 
 export type EventItem = {

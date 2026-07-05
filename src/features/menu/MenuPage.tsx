@@ -12,6 +12,7 @@ import { useMenuData } from "./hooks/useMenuData";
 export default function MenuPage() {
   const { menuSections, isLoading, isError, retry } = useMenuData();
   const [selectedCategory, setSelectedCategory] = useState("localDishes");
+  const [hasSelectedCategory, setHasSelectedCategory] = useState(false);
 
   const activeId =
     selectedCategory ||
@@ -67,13 +68,20 @@ export default function MenuPage() {
           <CategoryTabs
             sections={menuSections}
             selectedId={activeId}
-            onSelect={setSelectedCategory}
+            onSelect={(id) => {
+              setHasSelectedCategory(true);
+              setSelectedCategory(id);
+            }}
           />
 
           <div className="section-padding bg-[linear-gradient(180deg,#111111_0%,#17110d_48%,#111111_100%)]">
             <div className="mx-auto max-w-7xl">
               {currentSection && (
-                <MenuSection key={currentSection.id} section={currentSection} />
+                <MenuSection
+                  key={currentSection.id}
+                  section={currentSection}
+                  animateOnMount={hasSelectedCategory}
+                />
               )}
             </div>
           </div>

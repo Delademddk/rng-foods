@@ -35,13 +35,21 @@ function Navbar() {
       className="fixed top-0 left-0 w-full z-50 glass border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link
-          to="/"
-          onClick={() => setOpen(false)}
-          className="text-2xl font-heading font-bold text-accent"
-        >
-          R&G Restaurant
-        </Link>
+        <div className="flex items-center gap-4">
+          <img
+            src="/favicon.webp"
+            alt="logo"
+            className="w-8 h-8 object-contain"
+          />
+
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className="text-2xl font-heading font-bold text-accent"
+          >
+            R&G Restaurant
+          </Link>
+        </div>
 
         <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest">
           {navLinks.map((link) => {
@@ -67,13 +75,15 @@ function Navbar() {
           })}
         </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-white"
-          aria-label="Toggle navigation"
-        >
-          {open ? <X /> : <Menu />}
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden text-white"
+            aria-label="Toggle navigation"
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {open && (

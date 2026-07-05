@@ -177,15 +177,15 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
 
       {/* ── Top bar ────────────────────────────────────────────────────────── */}
       <header className="glass sticky top-0 z-30 border-b border-white/10">
-        <div className="mx-auto flex max-w-7xl items-center gap-3 px-6 py-4">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-4 sm:px-6">
           <ShieldCheck className="h-5 w-5 text-accent" />
           <span className="font-heading text-lg font-bold text-white">Admin Dashboard</span>
 
-          <div className="ml-auto flex items-center gap-3">
+          <div className="ml-auto flex items-center gap-3 max-sm:ml-0 max-sm:w-full">
             <button
               type="button"
               onClick={() => { setEditingItem(null); setCreateMode(true) }}
-              className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-black transition hover:bg-accent/90"
+              className="flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-black transition hover:bg-accent/90 max-sm:flex-1 max-sm:px-3 max-sm:text-[10px]"
             >
               <Plus className="h-3.5 w-3.5" />
               Add New Dish
@@ -194,7 +194,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
             <button
               type="button"
               onClick={onLogout}
-              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-400 transition hover:border-red-500/40 hover:text-red-400"
+              className="flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-400 transition hover:border-red-500/40 hover:text-red-400 max-sm:flex-1 max-sm:px-3 max-sm:text-[10px]"
             >
               <LogOut className="h-3.5 w-3.5" />
               Log Out
@@ -203,12 +203,12 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
         </div>
       </header>
 
-      <div className="mx-auto max-w-7xl px-6 py-10">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10">
 
         {/* ── Page heading ──────────────────────────────────────────────────── */}
         <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="font-heading text-3xl font-bold text-white">Menu Management</h1>
+            <h1 className="font-heading text-2xl font-bold text-white sm:text-3xl">Menu Management</h1>
             <p className="mt-1 text-sm text-gray-500">
               {isLoading
                 ? 'Loading…'
@@ -220,7 +220,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
             type="button"
             onClick={fetchItems}
             disabled={isLoading}
-            className="flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-400 transition hover:border-accent/40 hover:text-accent disabled:opacity-50"
+            className="flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-400 transition hover:border-accent/40 hover:text-accent disabled:opacity-50 max-sm:w-full max-sm:justify-center"
           >
             <RefreshCw className={`h-3.5 w-3.5 ${isLoading ? 'animate-spin' : ''}`} />
             Refresh
@@ -312,7 +312,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex min-h-[40vh] flex-col items-center justify-center gap-5 text-center"
+            className="flex min-h-[40vh] flex-col items-center justify-center gap-5 px-4 text-center"
           >
             <ServerCrash className="h-14 w-14 text-accent opacity-60" />
             <div>
@@ -339,7 +339,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="overflow-hidden rounded-2xl border border-white/10"
+            className="hidden overflow-hidden rounded-2xl border border-white/10 md:block"
           >
             <table className="w-full text-sm">
               <thead>
@@ -459,6 +459,106 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                     type="button"
                     onClick={() => { setSearchQuery(''); setActiveCategory(null) }}
                     className="mt-3 text-xs text-accent underline underline-offset-2 hover:text-accent/80 transition"
+                  >
+                    Clear all filters
+                  </button>
+                )}
+              </div>
+            )}
+          </motion.div>
+        )}
+
+        {!isLoading && !isError && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="space-y-3 md:hidden"
+          >
+            <AnimatePresence initial={false}>
+              {filtered.map((item, i) => (
+                <motion.article
+                  key={item.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, x: -16 }}
+                  transition={{ delay: i * 0.018, duration: 0.25 }}
+                  className="overflow-hidden rounded-lg border border-white/[0.07] bg-white/[0.045] p-3 shadow-lg shadow-black/20"
+                >
+                  <div className="flex gap-3">
+                    <div className="h-24 w-20 flex-shrink-0 overflow-hidden rounded-md border border-white/10 bg-white/[0.04]">
+                      {item.image ? (
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="h-full w-full object-cover"
+                          onError={(e) => { e.currentTarget.style.display = 'none' }}
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-gray-700">
+                          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <div className="mb-1.5 flex items-start justify-between gap-2">
+                        <span className="max-w-full truncate rounded bg-accent/15 px-2 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-accent">
+                          {CATEGORY_LABELS[item.category] ?? item.category}
+                        </span>
+
+                        <div className="flex flex-shrink-0 items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => { setCreateMode(false); setEditingItem(item) }}
+                            className="text-accent transition hover:text-accent/80"
+                            aria-label={`Edit ${item.name}`}
+                          >
+                            <Pencil className="h-3.5 w-3.5" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => { setDeleteError(''); setDeletingItem(item) }}
+                            className="text-accent transition hover:text-red-400"
+                            aria-label={`Delete ${item.name}`}
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <h2 className="line-clamp-2 font-heading text-xl font-bold leading-tight text-white">
+                        {item.name}
+                      </h2>
+                      <p className="mt-1 line-clamp-2 text-xs leading-snug text-gray-300">
+                        {item.description}
+                      </p>
+
+                      <div className="mt-2 flex items-center justify-between gap-2">
+                        <span className="font-heading text-base font-bold leading-none text-accent">
+                          {item.price}
+                        </span>
+                        <span className="flex flex-shrink-0 items-center gap-1 text-[8px] font-bold uppercase tracking-[0.14em] text-gray-500">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                          Available
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </AnimatePresence>
+
+            {filtered.length === 0 && (
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-16 text-center">
+                <p className="text-sm font-semibold text-gray-400">{emptyMessage}</p>
+                {hasFilters && (
+                  <button
+                    type="button"
+                    onClick={() => { setSearchQuery(''); setActiveCategory(null) }}
+                    className="mt-3 text-xs text-accent underline underline-offset-2 transition hover:text-accent/80"
                   >
                     Clear all filters
                   </button>
