@@ -1,8 +1,13 @@
 import BankuImg from "../../../../assets/images/food/banku.jpg";
 import BuffetImg from "../../../../assets/images/food/buffet.jpg";
-import WaakyeImg from "../../../../assets/images/food/waakye.webp";
+import attiekeImg from "../../../../assets/images/food/attieke.jpeg";
 
 export const dishes = [
+  {
+    name: "Attieke",
+    image: attiekeImg,
+    description: "Rich attieke served with assorted proteins and sides.",
+  },
   {
     name: "Food Hamper",
     image: BuffetImg,
@@ -13,9 +18,5 @@ export const dishes = [
     image: BankuImg,
     description: "Classic grilled tilapia with spicy pepper sauce.",
   },
-  {
-    name: "Waakye Special",
-    image: WaakyeImg,
-    description: "Rich waakye served with assorted proteins and sides.",
-  },
+  
 ];

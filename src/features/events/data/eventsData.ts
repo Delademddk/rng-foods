@@ -30,7 +30,7 @@ export const eventsData: EventItem[] = [
     title: 'Chopbar Vibes',
     image: friendshipImage,
     description:
-      'Ease into the weekend with live music, chilled drinks, and authentic meals made for shared tables.',
+      'Ease into the weekend with live music, chilled drinks and authentic meals made for shared tables.',
     date: 'Every Friday',
     time: '7:00 PM',
     category: 'Food Special',

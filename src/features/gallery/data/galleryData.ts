@@ -25,7 +25,7 @@ export const galleryData: GalleryItem[] = [
     id: 2,
     image: jollofImage,
     title: 'Smoky Jollof Plates',
-    description: 'Warm grains, deep spice, and a signature R&G finish.',
+    description: 'Warm grains, deep spice and a signature R&G finish.',
   },
   {
     id: 3,
