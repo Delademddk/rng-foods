@@ -16,10 +16,9 @@
  *
  * The app formats price as "GH₵ <value>" at display time.
  *
- * Local image paths (e.g. /assets/images/food/red_red.jpeg) are served by
- * Vite's dev server from the project root.  For production, move the
- * top-level `assets/` folder inside `public/` so Vite includes them in the
- * build output.
+ * Local image paths (e.g. /src/assets/images/food/red_red.jpeg) are served by
+ * Vite's dev server from the source tree. The assets now live under
+ * `src/assets/`, so these URLs should point there when inserted into the DB.
  */
 
 import { existsSync, readFileSync } from "node:fs";
@@ -105,7 +104,7 @@ const menuItems = [
     description:
       "Black-eyed peas stewed in palm oil with fried ripe plantain — a classic Ghanaian favourite.",
     price: 70,
-    image_url: "/assets/images/food/red_red.jpeg",
+    image_url: "/src/assets/images/food/red_red.jpeg",
     category: "localDishes",
   },
   {
@@ -113,7 +112,7 @@ const menuItems = [
     description:
       "Soft rice balls served in a rich, slow-cooked groundnut soup with your choice of protein.",
     price: 40,
-    image_url: "/assets/images/food/omotuo.jpeg",
+    image_url: "/src/assets/images/food/omotuo.jpeg",
     category: "localDishes",
   },
   {
@@ -121,7 +120,7 @@ const menuItems = [
     description:
       "Boiled yam or plantain served with garden egg stew or kontomire, a true Ghanaian comfort.",
     price: 40,
-    image_url: "/assets/images/food/ampesi.jpeg",
+    image_url: "/src/assets/images/food/ampesi.jpeg",
     category: "localDishes",
   },
   {
@@ -129,7 +128,7 @@ const menuItems = [
     description:
       "Northern Ghanaian staple of fermented corn dough served with ayoyo or other soups.",
     price: 60,
-    image_url: "/assets/images/food/tuozaafi.jpeg",
+    image_url: "/src/assets/images/food/tuozaafi.jpeg",
     category: "localDishes",
   },
   {
@@ -137,7 +136,7 @@ const menuItems = [
     description:
       "Dried cassava dough served with a rich palm nut or groundnut soup.",
     price: 60,
-    image_url: "/assets/images/food/konkonte.jpeg",
+    image_url: "/src/assets/images/food/konkonte.jpeg",
     category: "localDishes",
   },
   {
@@ -145,7 +144,7 @@ const menuItems = [
     description:
       "Corn dough served with okra stew — a simple and hearty Ghanaian classic.",
     price: 60,
-    image_url: "/assets/images/food/anguamo.jpeg",
+    image_url: "/src/assets/images/food/anguamo.jpeg",
     category: "localDishes",
   },
 
@@ -182,14 +181,14 @@ const menuItems = [
     description:
       "House spaghetti in a rich tomato-based sauce served with chicken or beef.",
     price: 60,
-    image_url: "/assets/images/food/spaghetti.jpeg",
+    image_url: "/src/assets/images/food/spaghetti.jpeg",
     category: "continental",
   },
   {
     name: "R&G Yam Chips",
     description: "Crispy yam chips served with a side of your choice.",
     price: 40,
-    image_url: "/assets/images/food/yamchips.jpeg",
+    image_url: "/src/assets/images/food/yamchips.jpeg",
     category: "continental",
   },
 

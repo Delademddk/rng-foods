@@ -39,7 +39,7 @@ function MenuHero() {
           className="mt-7 max-w-2xl text-base leading-8 text-gray-300 md:text-xl"
         >
           A warm, generous spread of Ghanaian classics, continental favorites,
-          chilled drinks, and bar pours served with the spirit of Tesano.
+          chilled drinks and bar pours served with the spirit of Tesano.
         </motion.p>
       </div>
     </section>

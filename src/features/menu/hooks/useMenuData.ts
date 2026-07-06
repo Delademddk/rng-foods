@@ -7,7 +7,7 @@ const CATEGORY_META: Record<string, { title: string; subtitle: string }> = {
   localDishes: {
     title: "Local Dishes",
     subtitle:
-      "Deeply Ghanaian plates built around soup, fire, spice, grains, and slow comfort.",
+      "Deeply Ghanaian plates built around soup, fire, spice, grains and slow comfort.",
   },
   continental: {
     title: "Continental",
