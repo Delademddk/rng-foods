@@ -1,12 +1,8 @@
-import LogoTmg from '../../../../assets/images/branding/logo.jpg'
-import ChopbarImg from '../../../../assets/images/gallery/chopbarvibes.jpg'
-import PoolImg from '../../../../assets/images/gallery/pool.jpg'
+import LogoTmg from "../../../assets/images/branding/logo.jpg";
+import ChopbarImg from "../../../assets/images/gallery/chopbarvibes.jpg";
+import PoolImg from "../../../assets/images/gallery/pool.jpg";
 
-const images = [
-  PoolImg,
-  LogoTmg,
-  ChopbarImg,
-]
+const images = [PoolImg, LogoTmg, ChopbarImg];
 
 export default function Gallery() {
   return (
@@ -27,5 +23,5 @@ export default function Gallery() {
         ))}
       </div>
     </section>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import BankuImg from "../../../../assets/images/food/banku.jpg";
-import BuffetImg from "../../../../assets/images/food/buffet.jpg";
-import attiekeImg from "../../../../assets/images/food/attieke.jpeg";
+import BankuImg from "../../../assets/images/food/banku.jpg";
+import BuffetImg from "../../../assets/images/food/buffet.jpg";
+import attiekeImg from "../../../assets/images/food/attieke.jpeg";
 
 export const dishes = [
   {
@@ -18,5 +18,4 @@ export const dishes = [
     image: BankuImg,
     description: "Classic grilled tilapia with spicy pepper sauce.",
   },
-  
 ];
