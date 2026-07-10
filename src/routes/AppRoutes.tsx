@@ -7,6 +7,7 @@ import EventsPage from '../features/events/EventsPage'
 import GalleryPage from '../features/gallery/GalleryPage'
 import HomePage from '../features/home/HomePage'
 import MenuPage from '../features/menu/MenuPage'
+import RngMenuPage from '../features/rngmenu/RngMenuPage'
 
 export default function AppRoutes() {
   return (
@@ -36,6 +37,14 @@ function AnimatedRoutes() {
           element={
             <PageShell>
               <MenuPage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/rngmenu"
+          element={
+            <PageShell>
+              <RngMenuPage />
             </PageShell>
           }
         />
